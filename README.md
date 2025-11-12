@@ -1,5 +1,5 @@
 # Moodly
-
+# Info for me
 ## Dodawanie nowej strony:
 - Dodajesz nowy element -> UserControl
 - W `.axaml` dopisujesz *.Views*
