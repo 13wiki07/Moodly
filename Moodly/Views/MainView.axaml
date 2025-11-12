@@ -16,5 +16,11 @@
     <StackPanel>
         <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <views:AddMoodView/>
+        <StackPanel Orientation="Vertical">
+			<Button Content="Home"/>
+            <Button Content="Nastroje"/>
+            <Button Content="Statystyki"/>
+            <Button Content="Ustawienia"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>
