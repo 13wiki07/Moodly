@@ -13,23 +13,14 @@
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
     <vm:MainViewModel />
   </Design.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="0" Background="Pink" Margin="10">
+    <StackPanel>
+        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <views:AddMoodView/>
+        <StackPanel Orientation="Vertical">
 			    <Button Content="Home"/>
           <Button Content="Nastroje"/>
           <Button Content="Statystyki"/>
           <Button Content="Ustawienia"/>
         </StackPanel>
-        </StackPanel>
-        
-        <StackPanel Grid.Column="1" Margin="20">
-            <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <views:HomeView></views:HomeView>
-        </StackPanel>
-    </Grid>
+    </StackPanel>
 </UserControl>
