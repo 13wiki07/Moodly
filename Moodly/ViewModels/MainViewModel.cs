@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Moodly.Views.Shared;
+using Moodly.ViewModels;  // dla AddMoodViewModel
 
 namespace Moodly.ViewModels;
 
@@ -11,12 +12,15 @@ public partial class MainViewModel : ViewModelBase
     private Control _currentView;
 
     [ObservableProperty]
-    private string _greeting = "Welcome to Moodly!"; // CommunityToolkit zapewnia potem autogenerowane Greeting :o
+    private string _greeting = "Welcome to Moodly!";
 
-    // Cache Views - tworzymy raz, używamy wiele razy
+    // Cache ViewModels
+    private readonly CalendarViewModel _calendarViewModel = new();
     private readonly HomeView _homeView = new();
-    private readonly CalendarView _calendarView = new();
-    private readonly AddMoodView _addMoodView = new();
+
+    // Cache dla AddMood z ViewModel
+    private AddMoodView? _addMoodView;
+    private AddMoodViewModel? _addMoodViewModel;
 
     public MainViewModel()
     {
@@ -34,13 +38,23 @@ public partial class MainViewModel : ViewModelBase
     [RelayCommand]
     private void NavigateToCalendar()
     {
-        CurrentView = _calendarView;
+        var calendarView = new CalendarView();
+        calendarView.DataContext = _calendarViewModel;
+        CurrentView = calendarView;
         Greeting = "Calendar";
     }
 
     [RelayCommand]
     private void NavigateToAddMood()
     {
+        _addMoodViewModel ??= new AddMoodViewModel();
+
+        if (_addMoodView == null)
+        {
+            _addMoodView = new AddMoodView();
+            _addMoodView.DataContext = _addMoodViewModel; // ← TO JEST WAŻNE!
+        }
+
         CurrentView = _addMoodView;
         Greeting = "Add Mood";
     }

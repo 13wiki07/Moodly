@@ -1,8 +1,102 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Moodly.Views.Shared.CalendarView">
-  Welcome to Calendar Page!
+             xmlns:vm="clr-namespace:Moodly.ViewModels"
+             xmlns:controls="clr-namespace:Moodly.Views.Shared.Controls"
+             x:Class="Moodly.Views.Shared.CalendarView"
+             x:DataType="vm:CalendarViewModel">
+    
+    <StackPanel Spacing="20" Margin="20">
+        
+        <!-- NAGŁÓWEK - miesiąc i nawigacja -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Przycisk poprzedni miesiąc -->
+            <Button Grid.Column="0"
+                    Command="{Binding NavigateToPreviousMonthCommand}"
+                    Width="40" 
+                    Height="40"
+                    FontSize="20"
+                    Content="‹"
+                    IsEnabled="{Binding CanGoPrevious}"/>
+            
+            <!-- Miesiąc i rok -->
+            <TextBlock Grid.Column="1"
+                       Text="{Binding MonthYearDisplay}"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            
+            <!-- Przycisk następny miesiąc -->
+            <Button Grid.Column="2"
+                    Command="{Binding NavigateToNextMonthCommand}"
+                    Width="40" 
+                    Height="40"
+                    FontSize="20"
+                    Content="›"
+                    IsEnabled="{Binding CanGoNext}"/>
+        </Grid>
+        
+        <!-- DNI TYGODNIA -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0" Text="Pn" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Column="1" Text="Wt" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Column="2" Text="Śr" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Column="3" Text="Cz" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Column="4" Text="Pt" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Column="5" Text="So" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Grid.Column="6" Text="Nd" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        
+        <!-- KALENDARZ - dni -->
+        <Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    
+    <ItemsControl ItemsSource="{Binding Days}" Grid.ColumnSpan="7" Grid.RowSpan="6">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Columns="7" Rows="6"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <controls:DayControl Margin="5" DataContext="{Binding}"/>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</Grid>
+        
+    </StackPanel>
 </UserControl>

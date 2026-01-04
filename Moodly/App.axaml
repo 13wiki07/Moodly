@@ -3,14 +3,19 @@
              xmlns:local="using:Moodly"
              x:Class="Moodly.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-
-    <Application.DataTemplates>
-        <!--<local:ViewLocator/>-->
-    </Application.DataTemplates>
-
+    
+    <!-- USUÑ DataTemplates ca³kowicie! -->
+    
     <Application.Styles>
         <FluentTheme />
+
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+        
+        <Style Selector="Button">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
 
         <StyleInclude Source="avares://Moodly/Styles/ButtonStyles.axaml"/> 
 

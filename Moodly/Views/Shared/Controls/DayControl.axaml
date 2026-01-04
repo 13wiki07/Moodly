@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Moodly.ViewModels"
+             x:Class="Moodly.Views.Shared.Controls.DayControl"
+             x:DataType="vm:DayViewModel">
+    
+    <Border Width="40" 
+            Height="40" 
+            CornerRadius="20"
+            Background="{Binding BackgroundColor}"
+            BorderBrush="{Binding BorderColor}"
+            BorderThickness="{Binding BorderThickness}">
+        
+        <TextBlock Text="{Binding DayNumber}"
+                   FontSize="16"
+                   FontWeight="SemiBold"
+                   Foreground="{Binding TextColor}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+                   
+    </Border>
+</UserControl>
