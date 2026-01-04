@@ -11,8 +11,5 @@
 
     <Application.Styles>
         <FluentTheme />
-
-        <StyleInclude Source="avares://Moodly/Styles/ButtonStyles.axaml"/> 
-
     </Application.Styles>
 </Application>

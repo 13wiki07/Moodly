@@ -15,20 +15,18 @@
   </Design.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="140" Background="Pink"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <Panel Grid.Column="0" Margin="0" Background="LightGray">
-        <StackPanel Orientation="Vertical" Margin="10">
-			    <Button Content="Home" Classes="NavigationButton"/>
-          <Button Content="Nastroje" Background="Transparent"/>
-          <Button Content="Statystyki" Background="Transparent"/>
-          <Button Content="Ustawienia" Background="Red"/>
+        <StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10">
+			    <Button Content="Home"/>
+          <Button Content="Nastroje"/>
+          <Button Content="Statystyki"/>
+          <Button Content="Ustawienia"/>
         </StackPanel>
-        </Panel>
+        </StackPanel>
         
-
         <StackPanel Grid.Column="1" Margin="20">
             <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <views:HomeView></views:HomeView>
