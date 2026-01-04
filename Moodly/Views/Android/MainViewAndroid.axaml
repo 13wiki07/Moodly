@@ -1,0 +1,79 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="800"
+             xmlns:vm="clr-namespace:Moodly.ViewModels"
+             x:DataType="vm:MainViewModel"
+             x:Class="Moodly.Views.Android.MainViewAndroid">
+    <UserControl.Styles>
+        <!-- STYLE DODAJ TUTAJ -->
+        <Style Selector="TextBlock.textBottomPanel">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="*,70">
+        <TextBlock Text="{Binding Greeting}" Background="Red"/>
+        <!-- GŁÓWNA ZAWARTOŚĆ - TE SAME VIEWS CO NA DESKTOP -->
+        <ScrollViewer Grid.Row="0">
+            <ContentControl Content="{Binding CurrentView}" Padding="10"/>
+        </ScrollViewer>
+        
+        <!-- DOLNY PANEL - bottom navigation -->
+        <Border Grid.Row="1" 
+                Background="#2c3e50" 
+                BorderThickness="0"
+                CornerRadius="20,20,0,0">
+            
+            <Grid ColumnDefinitions="*,*,*" Margin="0,10">
+                
+                <!-- Home -->
+                <Button Grid.Column="0" HorizontalAlignment="Center"
+                        Command="{Binding NavigateToHomeCommand}"
+                        Background="Transparent"
+                        BorderThickness="0">
+                    <StackPanel>
+                        <TextBlock Text="ikonka" 
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Home" 
+                                   Classes="textBottomPanel"/>
+                    </StackPanel>
+                </Button>
+                
+                <!-- Add Mood -->
+                <Button Grid.Column="1" HorizontalAlignment="Center"
+                        Command="{Binding NavigateToAddMoodCommand}"
+                        Background="Transparent"
+                        BorderThickness="0">
+                    <StackPanel>
+                        <TextBlock Text="ikonka" 
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Add" 
+                                   Classes="textBottomPanel"/>
+                    </StackPanel>
+                </Button>
+                
+                <!-- Calendar -->
+                <Button Grid.Column="2" HorizontalAlignment="Center"
+                        Command="{Binding NavigateToCalendarCommand}"
+                        Background="Transparent"
+                        BorderThickness="0">
+                    <StackPanel>
+                        <TextBlock Text="ikonka" 
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Calendar" 
+                                   Classes="textBottomPanel"/>
+                    </StackPanel>
+                </Button>
+                
+            </Grid>
+        </Border>
+        
+    </Grid>
+</UserControl>

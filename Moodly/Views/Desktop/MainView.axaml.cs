@@ -2,11 +2,11 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Moodly.Views;
+namespace Moodly.Views.Desktop;
 
-public partial class HomeView : UserControl
+public partial class MainViewDesktop : UserControl
 {
-    public HomeView()
+    public MainViewDesktop()
     {
         InitializeComponent();
     }

@@ -2,11 +2,11 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Moodly.Views;
+namespace Moodly.Views.Shared;
 
-public partial class CalendarView : UserControl
+public partial class HomeView : UserControl
 {
-    public CalendarView()
+    public HomeView()
     {
         InitializeComponent();
     }

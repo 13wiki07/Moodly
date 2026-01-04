@@ -18,27 +18,34 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        // Tworzymy wspólny ViewModel
+        var viewModel = new MainViewModel();
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
-            // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
+
+            // DLA DESKTOP: u¿ywamy Desktop layout
+            var desktopView = new Views.Desktop.MainViewDesktop();
+            desktopView.DataContext = viewModel;
+
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel()
+                Content = desktopView  // Wa¿ne: Content a nie DataContext!
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
-            singleViewPlatform.MainView = new MainView
-            {
-                DataContext = new MainViewModel()
-            };
+            // DLA ANDROID: u¿ywamy Android layout
+            var androidView = new Views.Android.MainViewAndroid();
+            androidView.DataContext = viewModel;
+
+            singleViewPlatform.MainView = androidView;
         }
 
         base.OnFrameworkInitializationCompleted();
     }
-
     private void DisableAvaloniaDataAnnotationValidation()
     {
         // Get an array of plugins to remove

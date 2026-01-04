@@ -21,4 +21,13 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Android\MainViewAndroid.axaml.cs">
+      <DependentUpon>MainViewAndroid.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Desktop\MainView.axaml.cs">
+      <DependentUpon>MainView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

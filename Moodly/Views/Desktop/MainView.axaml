@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             
+             xmlns:vm="clr-namespace:Moodly.ViewModels"
+             x:DataType="vm:MainViewModel"
+             x:Class="Moodly.Views.Desktop.MainViewDesktop">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- LEWY PANEL -->
+        <Panel Grid.Column="0" Background="LightGray">
+            <StackPanel Margin="10" Spacing="10">
+                <!-- Podpinamy komendy z ViewModel, koniecznie dopisz Command -->
+                <Button Content="Home" 
+                        Command="{Binding NavigateToHomeCommand}"
+                        Background="Transparent"/>
+                        
+                <Button Content="Add Mood" 
+                        Command="{Binding NavigateToAddMoodCommand}"
+                        Background="Transparent"/>
+                        
+                <Button Content="Calendar"
+                        Command="{Binding NavigateToCalendarCommand}"
+                        Background="Transparent"/>
+                        
+                <Button Content="Settings"
+                        Background="Transparent"/>
+            </StackPanel>
+        </Panel>
+
+        <!-- G£ÓWNA ZAWARTOŒÆ -->
+        <StackPanel Grid.Column="1" Margin="20">
+            <!-- Tu bêd¹ siê pojawiaæ Shared Views -->
+            <ContentControl Content="{Binding CurrentView}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
