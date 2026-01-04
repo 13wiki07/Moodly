@@ -22,9 +22,9 @@
         <Panel Grid.Column="0" Margin="0" Background="LightGray">
         <StackPanel Orientation="Vertical" Margin="10">
 			    <Button Content="Home" Classes="NavigationButton"/>
-          <Button Content="Nastroje" Background="Transparent"/>
-          <Button Content="Statystyki" Background="Transparent"/>
-          <Button Content="Ustawienia" Background="Red"/>
+          <Button Content="Nastroje"/>
+          <Button Content="Statystyki"/>
+          <Button Content="Ustawienia"/>
         </StackPanel>
         </Panel>
         

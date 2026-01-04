@@ -24,7 +24,7 @@
 			    <Button Content="Home" Classes="NavigationButton"/>
           <Button Content="Nastroje" Background="Transparent"/>
           <Button Content="Statystyki" Background="Transparent"/>
-          <Button Content="Ustawienia" Background="Red"/>
+          <Button Content="Ustawienia" Background="Pi k"/>
         </StackPanel>
         </Panel>
         

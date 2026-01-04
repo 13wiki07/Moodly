@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- <Style Selector="Button">
+        <Setter Property="Background" Value="DodgerBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style> -->
+
+    <Style x:Key="NavigationPageButton" Selector="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
+    <Style Selector="Button.Warning">
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="DarkRed"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    
+</Styles>
