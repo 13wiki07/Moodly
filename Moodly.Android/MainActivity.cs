@@ -6,7 +6,7 @@ using Avalonia.Android;
 namespace Moodly.Android;
 
 [Activity(
-    Label = "Moodly.Android",
+    Label = "Moodly",
     Theme = "@style/MyTheme.NoActionBar",
     Icon = "@drawable/icon",
     MainLauncher = true,
