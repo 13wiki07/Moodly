@@ -2,17 +2,123 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+             xmlns:vm="clr-namespace:Moodly.ViewModels"
+             x:DataType="vm:AddMoodViewModel"
              x:Class="Moodly.Views.Shared.AddMoodView"> <!-- dodaj tu .Views przy nowej stronie-->
-    <StackPanel Orientation="Vertical">
-        <TextBlock Text="Jak mija Ci dzień?"/>
-    <StackPanel Orientation="Horizontal">
-        <Button Content="1"/>
-        <Button Content="2"/>
-        <Button Content="3"/>
-        <Button Content="4"/>
-        <Button Content="5"/>
-        <Button Content="6"/>
-    </StackPanel>
-    </StackPanel>
+    <UserControl.Styles>
+        <!-- STYLE DODAJ TUTAJ -->
+        <Style Selector="Button.moodBtn">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Command" Value="{Binding MoodClickCommand}"/>
+        </Style>
+
+        <!--klasa dla kliknętego buttona-->
+        <Style Selector="Button.selected">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <Style Selector="TextBlock.emoteTB">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TextBlock.textEmoteTB">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </UserControl.Styles>
+
+    <ScrollViewer>
+        <StackPanel Margin="20" Spacing="20">
+            
+            <!-- TYTUŁ -->
+            <TextBlock Text="Dodaj nastrój" 
+                       FontSize="24" 
+                       FontWeight="Bold"/>
+            
+            <!-- DATA -->
+            <StackPanel Spacing="5">
+                <TextBlock Text="Data:" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding Text, Mode=TwoWay}"/>
+                <DatePicker SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
+                            HorizontalAlignment="Left"/>
+            </StackPanel>
+            
+            <!-- NASTRÓJ -->
+            <StackPanel Spacing="10">
+                <TextBlock Text="Jak się czujesz?" FontWeight="SemiBold"/>
+                
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <!-- Mood 1 - Bardzo źle -->
+                    <Button x:Name="btn1" Classes="moodBtn" CommandParameter="1">
+                        <StackPanel>
+                            <TextBlock Text="😢" Classes="emoteTB"/>
+                            <TextBlock Text="Bardzo źle" Classes="textEmoteTB"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- Mood 2 - Źle -->
+                    <Button x:Name="btn2" Classes="moodBtn" CommandParameter="2">
+                        <StackPanel>
+                            <TextBlock Text="😞" Classes="emoteTB"/>
+                            <TextBlock Text="Źle" Classes="textEmoteTB"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- Mood 3 - OK -->
+                    <Button Name="btn3" Classes="moodBtn" CommandParameter="3">
+                        <StackPanel>
+                            <TextBlock Text="😐" Classes="emoteTB"/>
+                            <TextBlock Text="OK" Classes="textEmoteTB"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- Mood 4 - Dobrze -->
+                    <Button x:Name="btn4" Classes="moodBtn" CommandParameter="4">
+                        <StackPanel>
+                            <TextBlock Text="🙂" Classes="emoteTB"/>
+                            <TextBlock Text="Dobrze" Classes="textEmoteTB"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- Mood 5 - Bardzo dobrze -->
+                    <Button x:Name="btn5" Classes="moodBtn" CommandParameter="5">
+                        <StackPanel>
+                            <TextBlock Text="😊" Classes="emoteTB"/>
+                            <TextBlock Text="Bardzo dobrze" Classes="textEmoteTB"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- Mood 6 - Fantastycznie -->
+                    <Button Classes="moodBtn" CommandParameter="6">
+                        <StackPanel>
+                            <TextBlock Text="😄" Classes="emoteTB"/>
+                            <TextBlock Text="Fantastycznie" Classes="textEmoteTB"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            
+            <!-- NOTATKA -->
+            <StackPanel Spacing="5">
+                <TextBlock Text="Notatka (opcjonalnie):" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding Note, Mode=TwoWay}"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         Height="100"
+                         Watermark="Co dziś robiłeś/aś? Co wpłynęło na Twój nastrój?"/>
+            </StackPanel>
+            
+            <!-- PRZYCISK ZAPISZ -->
+            <Button Content="Zapisz nastrój"
+                    HorizontalAlignment="Right"
+                    Padding="20,10"
+                    FontSize="16"/>
+            
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

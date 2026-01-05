@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Moodly.Views.Shared;
-using Moodly.ViewModels;  // dla AddMoodViewModel
 
 namespace Moodly.ViewModels;
 

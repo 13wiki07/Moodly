@@ -16,7 +16,7 @@
     </UserControl.Styles>
 
     <Grid RowDefinitions="*,70">
-        <TextBlock Text="{Binding Greeting}" Background="Red"/>
+        <TextBlock Text="{Binding Greeting}" Background="#F6F0D7"/>
         <!-- GŁÓWNA ZAWARTOŚĆ - TE SAME VIEWS CO NA DESKTOP -->
         <ScrollViewer Grid.Row="0">
             <ContentControl Content="{Binding CurrentView}" Padding="10"/>

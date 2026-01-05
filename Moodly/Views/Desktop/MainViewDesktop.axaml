@@ -6,8 +6,23 @@
              
              xmlns:vm="clr-namespace:Moodly.ViewModels"
              x:DataType="vm:MainViewModel"
-             x:Class="Moodly.Views.Desktop.MainViewDesktop">
-    
+             x:Class="Moodly.Views.Desktop.MainViewDesktop"
+             Background="#9cad76">
+    <UserControl.Styles>
+        <!-- STYLE DODAJ TUTAJ -->
+        <Style Selector="Button.navbar">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+
+        <Style Selector="Button.selected">
+            <Setter Property="Background" Value="#89986D"/>
+            <Setter Property="BorderBrush" Value="#9CAB84"/>
+        </Style>
+    </UserControl.Styles>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
@@ -15,23 +30,23 @@
         </Grid.ColumnDefinitions>
 
         <!-- LEWY PANEL -->
-        <Panel Grid.Column="0" Background="LightGray">
+        <Panel Grid.Column="0" Background="#C5D89D">
             <StackPanel Margin="10" Spacing="10">
                 <!-- Podpinamy komendy z ViewModel, koniecznie dopisz Command -->
                 <Button Content="Home" 
                         Command="{Binding NavigateToHomeCommand}"
-                        Background="Transparent"/>
+                        Classes="navbar"/>
                         
                 <Button Content="Add Mood" 
                         Command="{Binding NavigateToAddMoodCommand}"
-                        Background="Transparent"/>
+                        Classes="navbar"/>
                         
                 <Button Content="Calendar"
                         Command="{Binding NavigateToCalendarCommand}"
-                        Background="Transparent"/>
+                        Classes="navbar"/>
                         
                 <Button Content="Settings"
-                        Background="Transparent"/>
+                        Classes="navbar"/>
             </StackPanel>
         </Panel>
 

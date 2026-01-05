@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Moodly.Views.Shared.Controls;
 
